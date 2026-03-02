@@ -1,6 +1,6 @@
 # RT-ENSS — Real-Time Embedded Network Security Simulator
 
-A SystemC-based simulation of a real-time embedded system under cyber attack. RT-ENSS models multiple embedded devices communicating over a shared network bus, running time-critical tasks under an RTOS scheduler, while being attacked by a simulated adversary. An Intrusion Detection System monitors the bus in real time and triggers a safe mode response upon detecting an attack — all without missing critical task deadlines.
+A SystemC-based simulation of a real-time embedded system under cyber attack. RT-ENSS models multiple embedded devices communicating over a shared network bus, running time-critical tasks under an RTOS scheduler, while being attacked by a simulated adversary. An Intrusion Detection System monitors the bus in real time and triggers a safe mode response upon detecting an attack, all without missing critical task deadlines.
 
 ---
 
@@ -16,25 +16,24 @@ A SystemC-based simulation of a real-time embedded system under cyber attack. RT
 ---
 
 ## Project Structure
-
 ```
 rt-enss/
-├── main.cpp         — Top-level, instantiates all modules and starts simulation
-├── network.h        — Shared network bus and Message struct
-├── scheduler.h      — RMS scheduler with safe mode and VCD signals
-├── node.h           — Embedded device that generates periodic messages
-├── attack.h         — Injects spoofing and DoS attacks at set times
-├── ids.h            — Monitors bus traffic and detects anomalies
-└── run.ps1          — Build and run script (Windows/PowerShell)
+├── main.cpp         Top-level, instantiates all modules and starts simulation
+├── network.h        Shared network bus and Message struct
+├── scheduler.h      RMS scheduler with safe mode and VCD signals
+├── node.h           Embedded device that generates periodic messages
+├── attack.h         Injects spoofing and DoS attacks at set times
+├── ids.h            Monitors bus traffic and detects anomalies
+└── run.ps1          Build and run script (Windows/PowerShell)
 ```
 
 ---
 
 ## Requirements
 
-- [SystemC 3.0.2](https://github.com/accellera-official/systemc) — built from source
+- [SystemC 3.0.2](https://github.com/accellera-official/systemc) built from source
 - [MSYS2](https://www.msys2.org/) with GCC 15.2 and C++17 support
-- [GTKWave](https://gtkwave.github.io/gtkwave) — for VCD waveform visualization
+- [GTKWave](https://gtkwave.github.io/gtkwave) for VCD waveform visualization
 - Windows with PowerShell
 
 ---
@@ -42,7 +41,6 @@ rt-enss/
 ## Building SystemC
 
 Download and extract SystemC 3.0.2, then in the MSYS2 MinGW x64 terminal:
-
 ```bash
 cd /path/to/systemc-3.0.2
 mkdir build && cd build
@@ -56,7 +54,6 @@ cmake --install . --prefix /c/Users/<your-username>/systemc
 ## Running the Simulation
 
 Clone the repo and navigate to the project folder in PowerShell:
-
 ```powershell
 cd "path\to\rt-enss"
 ./run.ps1
@@ -67,7 +64,6 @@ This compiles and runs the simulation in one command. Output includes a real-tim
 ---
 
 ## Viewing the Waveform
-
 ```powershell
 gtkwave rt_enss_trace.vcd
 ```
@@ -80,7 +76,6 @@ Add `safe_mode` and `running_task[31:0]` signals to the wave view. You will see:
 ---
 
 ## Sample Output
-
 ```
 [SCHEDULER] Running Task 1 at 0 s
 [NETWORK] Message from Node 1 at 0 s
@@ -101,9 +96,3 @@ DoS Attack Injected
 [SCHEDULER] Running Task 1 at 120 ms
 [NETWORK] Message from Node 1 at 120 ms
 ```
-
----
-
-## Course
-
-Embedded Systems — B.Tech CSE
