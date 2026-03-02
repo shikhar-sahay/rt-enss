@@ -17,7 +17,6 @@ SC_MODULE(Network) {
 
     void transmit(Message msg) {
         if (bus.size() < (size_t)max_capacity) {
-            wait(1, SC_MS);  // transmission delay
             bus.push(msg);
             std::cout << "[NETWORK] Message from Node "
                       << msg.sender << " at "
