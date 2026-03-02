@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/sahay/systemc/include"
+            ],
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
