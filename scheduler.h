@@ -17,6 +17,8 @@ SC_MODULE(Scheduler) {
 
     std::vector<Task> tasks;
     bool safe_mode = false;
+    sc_signal<bool> sig_safe_mode;
+    sc_signal<int> sig_running_task;
 
     void schedule() {
         while (true) {
@@ -33,8 +35,11 @@ SC_MODULE(Scheduler) {
                               << task.id << " at "
                               << sc_time_stamp() << std::endl;
 
+                    sig_running_task.write(task.id);
+
                     wait(task.execution_time, SC_MS);
 
+                    sig_running_task.write(0);
                     task.next_release += sc_time(task.period, SC_MS);
                 }
             }
@@ -45,10 +50,11 @@ SC_MODULE(Scheduler) {
 
     void enter_safe_mode() {
         safe_mode = true;
-        std::cout << "⚠ SYSTEM ENTERED SAFE MODE\n";
+        sig_safe_mode.write(true);
+        std::cout << "[SCHEDULER] SYSTEM ENTERED SAFE MODE" << std::endl;
     }
 
-    SC_CTOR(Scheduler) {
+    SC_CTOR(Scheduler) : sig_safe_mode("sig_safe_mode"), sig_running_task("sig_running_task") {
         SC_THREAD(schedule);
     }
 };
