@@ -16,7 +16,7 @@ SC_MODULE(Network) {
     int max_capacity = 20;
 
     void transmit(Message msg) {
-        if (bus.size() < max_capacity) {
+        if (bus.size() < (size_t)max_capacity) {
             wait(1, SC_MS);  // transmission delay
             bus.push(msg);
             std::cout << "[NETWORK] Message from Node "
@@ -24,6 +24,8 @@ SC_MODULE(Network) {
                       << sc_time_stamp() << std::endl;
         }
     }
+
+    SC_CTOR(Network) {}
 
 };
 
