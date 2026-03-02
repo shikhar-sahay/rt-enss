@@ -10,7 +10,6 @@ int sc_main(int argc, char* argv[]) {
     Network network("Network");
     Scheduler scheduler("Scheduler");
 
-    // Add Tasks
     scheduler.tasks.push_back({1, 20, 5, SC_ZERO_TIME});
     scheduler.tasks.push_back({2, 50, 10, SC_ZERO_TIME});
 
@@ -20,7 +19,14 @@ int sc_main(int argc, char* argv[]) {
     AttackInjector attacker("Attacker", &network);
     IDS ids("IDS", &network, &scheduler);
 
+    // VCD Trace
+    sc_trace_file* tf = sc_create_vcd_trace_file("rt_enss_trace");
+    sc_trace(tf, scheduler.safe_mode, "safe_mode");
+    sc_trace(tf, ids.net->bus.empty(), "bus_empty");
+
     sc_start(200, SC_MS);
+
+    sc_close_vcd_trace_file(tf);
 
     return 0;
 }
