@@ -18,13 +18,13 @@ SC_MODULE(AttackInjector) {
         fake.data = 999;
         fake.timestamp = sc_time_stamp();
 
-        std::cout << "🔥 Spoofing Attack Injected\n";
+        std::cout << "Spoofing Attack Injected\n";
         net->transmit(fake);
 
         wait(50, SC_MS);
 
         // DoS attack
-        std::cout << "🔥 DoS Attack Injected\n";
+        std::cout << "DoS Attack Injected\n";
         for (int i = 0; i < 30; i++) {
             Message flood;
             flood.sender = 99;
