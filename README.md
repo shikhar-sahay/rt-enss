@@ -1,4 +1,4 @@
-# RT-ENSS (Real-Time Embedded Network Security Simulator):
+# RT-ENSS (Real-Time Embedded Network Security Simulator) :
 
 A SystemC-based simulation of a real-time embedded system under cyber attack. RT-ENSS models multiple embedded devices communicating over a shared network bus, running time-critical tasks under an RTOS scheduler, while being attacked by a simulated adversary. An Intrusion Detection System monitors the bus in real time and triggers a safe mode response upon detecting an attack, all without missing critical task deadlines.
 
