@@ -21,8 +21,8 @@ int sc_main(int argc, char* argv[]) {
 
     // VCD Trace
     sc_trace_file* tf = sc_create_vcd_trace_file("rt_enss_trace");
-    sc_trace(tf, scheduler.safe_mode, "safe_mode");
-    sc_trace(tf, ids.net->bus.empty(), "bus_empty");
+    sc_trace(tf, scheduler.sig_safe_mode, "safe_mode");
+    sc_trace(tf, scheduler.sig_running_task, "running_task");
 
     sc_start(200, SC_MS);
 
