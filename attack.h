@@ -12,7 +12,7 @@ SC_MODULE(AttackInjector) {
 
         wait(50, SC_MS);
 
-        // Spoofing attack
+        //Hardcoded Spoofing Attack
         Message fake;
         fake.sender = 99;
         fake.data = 999;
@@ -23,7 +23,7 @@ SC_MODULE(AttackInjector) {
 
         wait(50, SC_MS);
 
-        // DoS attack
+        //Harcoded DoS Attack
         std::cout << "DoS Attack Injected\n";
         for (int i = 0; i < 30; i++) {
             Message flood;
