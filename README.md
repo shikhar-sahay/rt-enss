@@ -2,15 +2,15 @@
 
 **A SystemC-based simulation of a multi-node embedded network under cyber attack, with a live Python dashboard for real-time visualization.**
 
-Built for an Embedded Systems final project, RT-ENSS demonstrates that security and real-time scheduling guarantees can coexist — an IDS detects and responds to active attacks without causing critical tasks to miss their deadlines.
+Built for an Embedded Systems final project, RT-ENSS demonstrates that security and real-time scheduling guarantees can coexist. An IDS detects and responds to active attacks without causing critical tasks to miss their deadlines.
 
 ---
 
 ## The Core Idea
 
-Modern embedded systems — automotive ECUs, medical devices, industrial controllers — run on shared communication buses like CAN and UART. These buses were designed for reliability, not security. An attacker with access to the bus can spoof sensor readings, replay old commands, or flood the network to starve legitimate traffic.
+Modern embedded systems, such as automotive ECUs, medical devices, and industrial controllers, run on shared communication buses like CAN and UART. These buses were designed for reliability rather than security. An attacker with access to the bus can spoof sensor readings, replay old commands, or flood the network to starve legitimate traffic.
 
-Most security solutions treat intrusion detection as an add-on layer, ignoring the strict timing constraints that make embedded systems work. RT-ENSS models the problem correctly: the IDS operates *within* the real-time scheduling framework, so security responses never violate task deadlines.
+Most security solutions treat intrusion detection as an add-on layer and ignore the strict timing constraints that make embedded systems work. RT-ENSS models the problem correctly: the IDS operates *within* the real-time scheduling framework so that security responses never violate task deadlines.
 
 ---
 
@@ -57,14 +57,14 @@ Most security solutions treat intrusion detection as an add-on layer, ignoring t
 ### Watch the IDS in Action
 This video shows the RT-ENSS dashboard during the 300ms simulation. Note the **Safe Mode** transitions in the top-right corner as the IDS detects the Spoofing and DoS attacks.
 
-![RT-ENSS Simulation Demo](assets/RT-ENSS%20Simulation%20Demo.mp4)
+https://github.com/user-attachments/assets/92c9a07a-addf-4069-add2-d12aeb24f08f
 
 ---
 
 ## Modules
 
 ### `network.h` — Shared Network Bus
-Models a CAN/UART-style shared communication bus as a message queue with a hard capacity of 30 messages. Each message carries a typed payload, priority level, sender ID, sequence number, and timestamp — the full metadata the IDS needs to analyze traffic.
+Models a CAN/UART-style shared communication bus as a message queue with a hard capacity of 30 messages. Each message carries a typed payload, priority level, sender ID, sequence number, and timestamp. This provides the full metadata the IDS needs to analyze traffic.
 
 Key design decisions:
 - Messages are typed: `SENSOR_DATA`, `CONTROL_CMD`, `HEARTBEAT`, `GATEWAY_RELAY`, `UNKNOWN`
@@ -106,7 +106,7 @@ Each node also sends periodic `HEARTBEAT` messages every 50ms. All messages incl
 ### `attack.h` — Attack Injector
 Injects three distinct attacks at fixed simulation times, each representing a real threat class against embedded networks:
 
-**Spoofing (60ms)** — Sends a `CONTROL_CMD` message with sender ID 99, which is not in the whitelist of legitimate nodes. In a real system, this could mean a compromised or external device injecting false commands into a CAN bus — for example, sending a fake brake signal in an automotive network.
+**Spoofing (60ms)** — Sends a `CONTROL_CMD` message with sender ID 99, which is not in the whitelist of legitimate nodes. In a real system, this could mean a compromised or external device injecting false commands into a CAN bus; for example, sending a fake brake signal in an automotive network.
 
 **Replay (100ms)** — Captures a legitimate message from the traffic log and re-broadcasts it with its original stale timestamp. The message content looks valid, but its age betrays it. In a real system, an attacker could record an "unlock" or "open valve" command and replay it later.
 
@@ -115,7 +115,7 @@ Injects three distinct attacks at fixed simulation times, each representing a re
 ---
 
 ### `ids.h` — Intrusion Detection System
-The IDS monitors every message on the bus and computes a threat confidence score using five independent detection checks. It operates as a concurrent SystemC thread, processing up to 5 messages per millisecond tick.
+The IDS monitors every message on the bus and computes a threat-confidence score based on five independent detection checks. It operates as a concurrent SystemC thread, processing up to 5 messages per millisecond tick.
 
 **Detection checks:**
 
@@ -132,12 +132,12 @@ The IDS monitors every message on the bus and computes a threat confidence score
 - Score ≥ 100 → escalate scheduler to `EMERGENCY`
 - Bus load drops below 30% → automatic recovery to `NORMAL`
 
-The IDS never blocks the scheduler and adds zero latency to critical task execution — it runs in its own thread with bounded per-tick processing.
+The IDS never blocks the scheduler and adds zero latency to critical task execution. It runs in its own thread with bounded per-tick processing.
 
 ---
 
 ### `main.cpp` — Top-Level
-Instantiates all modules, wires them together, configures the task set, sets up VCD tracing, and runs the simulation in 1ms slices. Each slice emits a `[TICK]` marker to stdout, which the Python dashboard uses to pace its animated replay.
+Instantiates all modules, wires them together, configures the task set, sets up VCD tracing, and runs the simulation in 1-ms slices. Each slice emits a `[TICK]` marker to stdout, which the Python dashboard uses to pace its animated replay.
 
 **VCD signals traced:**
 
