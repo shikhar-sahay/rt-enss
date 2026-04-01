@@ -1,6 +1,4 @@
 #include <systemc.h>
-#include <chrono>
-#include <thread>
 #include "scheduler.h"
 #include "network.h"
 #include "node.h"
@@ -37,23 +35,16 @@ int sc_main(int argc, char* argv[]) {
     sc_trace(tf, ids.sig_threat_level,       "threat_level");
     sc_trace(tf, ids.sig_anomaly_score,      "anomaly_score");
 
-    // Paced simulation: 5ms slices with 80ms real-time pause between each.
-    // Gives the Python dashboard time to read and animate every event.
-    // 300ms simulated time plays out over ~5 seconds of real time.
-    const int TOTAL_MS = 300;
-    const int SLICE_MS = 5;
-    const int PAUSE_MS = 80;
-
-    for (int t = 0; t < TOTAL_MS; t += SLICE_MS) {
-        sc_start(SLICE_MS, SC_MS);
+    // Run in 1ms slices, printing a TICK every slice so Python
+    // can pace the visualization regardless of how fast SystemC runs.
+    for (int t = 0; t < 300; t += 1) {
+        sc_start(1, SC_MS);
+        std::cout << "[TICK] t=" << t+1 << std::endl;
         std::cout.flush();
-        std::this_thread::sleep_for(std::chrono::milliseconds(PAUSE_MS));
     }
 
     sc_close_vcd_trace_file(tf);
-
     std::cout << "=== SIMULATION COMPLETE ===" << std::endl;
     std::cout.flush();
-
     return 0;
 }
