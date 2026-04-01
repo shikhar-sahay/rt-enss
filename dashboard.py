@@ -85,7 +85,7 @@ class Dashboard(tk.Tk):
         self.after(200, self._check_ready)
         self.after(50,  self._animate)
 
-    # ── Collect sim output into replay buffer ─────────────────────────────────
+    # Collect sim output into replay buffer 
     def _collect_sim(self):
         """Run sim, bucket all events by tick number."""
         try:
@@ -159,7 +159,7 @@ class Dashboard(tk.Tk):
         self.current_tick += 1
         self.after(self.MS_PER_TICK, self._replay_tick)
 
-    # ── Handle events ─────────────────────────────────────────────────────────
+    # Handle events 
     def _handle(self, src, ev, det, ts):
         t = to_ms(ts)
         if src == "NETWORK" and ev == "MSG_TX":
@@ -211,7 +211,7 @@ class Dashboard(tk.Tk):
         elif src == "NODE" and ev == "INIT":
             self._evlog(f"Node {det.get('id','?')} ({det.get('role','?')}) online", "ok")
 
-    # ── Animation loop ────────────────────────────────────────────────────────
+    # Animation loop 
     def _animate(self):
         self._upd_nodes()
         self._upd_ids()
@@ -227,7 +227,7 @@ class Dashboard(tk.Tk):
         p["prog"] += p["spd"]
         return p["prog"] < 1.0
 
-    # ── Build UI ──────────────────────────────────────────────────────────────
+    # Build UI 
     def _build_ui(self):
         M  = ("Consolas", 10)
         MS = ("Consolas", 9)
@@ -348,7 +348,7 @@ class Dashboard(tk.Tk):
         self._lbl_time.config(text="ERROR", fg=DANGER)
         self._alert(msg, "red")
 
-    # ── Drawing ───────────────────────────────────────────────────────────────
+    # Drawing 
     def _upd_safe(self):
         col = SAFE_COL.get(self.safe_level, ACCENT2)
         sym = {"NORMAL":"●","GUARDED":"◆","EMERGENCY":"⬟"}.get(self.safe_level,"●")
@@ -468,7 +468,7 @@ class Dashboard(tk.Tk):
             cx=LW+(self.sim_time/se)*(W-LW-4)
             c.create_line(cx,4,cx,H-20,fill=ACCENT,width=2)
 
-    # ── Helpers ───────────────────────────────────────────────────────────────
+    # Helpers 
     def _spawn_pkt(self, src, mal):
         col=DANGER if mal else NODE_COL.get(src,ACCENT)
         self.packets.append({"src":src,"prog":0.0,"col":col,

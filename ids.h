@@ -9,9 +9,8 @@
 #include "network.h"
 #include "scheduler.h"
 
-// -------------------------------------------------------
 // Threat confidence levels
-// -------------------------------------------------------
+
 enum class ThreatLevel {
     CLEAN    = 0,
     SUSPECT  = 1,   // anomalous but not confirmed
@@ -67,7 +66,7 @@ SC_MODULE(IDS) {
                 int score = 0;
                 std::string reasons = "";
 
-                // ---- Check 1: Sender whitelist ----
+                // Check 1: Sender whitelist
                 bool whitelisted = false;
                 for (int id : net->whitelist)
                     if (id == msg.sender_id) { whitelisted = true; break; }
@@ -77,7 +76,7 @@ SC_MODULE(IDS) {
                     reasons += "UNKNOWN_SENDER ";
                 }
 
-                // ---- Check 2: Message rate anomaly ----
+                // Check 2: Message rate anomaly
                 int rate = net->senderRate(msg.sender_id, 20.0);
                 if (rate > MAX_MSGS_PER_WINDOW) {
                     int excess = rate - MAX_MSGS_PER_WINDOW;
@@ -85,14 +84,14 @@ SC_MODULE(IDS) {
                     reasons += "RATE_ANOMALY(rate=" + std::to_string(rate) + ") ";
                 }
 
-                // ---- Check 3: Replay detection (stale timestamp) ----
+                // Check 3: Replay detection (stale timestamp) 
                 double age_ms = (sc_time_stamp() - msg.timestamp).to_seconds() * 1000.0;
                 if (age_ms > MAX_MSG_AGE_MS && msg.type != MessageType::HEARTBEAT) {
                     score += REPLAY_SCORE;
                     reasons += "STALE_MSG(age=" + std::to_string((int)age_ms) + "ms) ";
                 }
 
-                // ---- Check 4: Sequence number regression ----
+                // Check 4: Sequence number regression 
                 auto& rec = profiles[msg.sender_id];
                 if (rec.last_seq >= 0 && msg.sequence_num < rec.last_seq &&
                     msg.sequence_num != 0) {
@@ -100,7 +99,7 @@ SC_MODULE(IDS) {
                     reasons += "SEQ_REGRESSION ";
                 }
 
-                // ---- Check 5: Bus-level DoS ----
+                // Check 5: Bus-level DoS 
                 if (net->load() > (int)(Network::MAX_CAPACITY * 0.75)) {
                     score += DOS_SCORE;
                     reasons += "BUS_CONGESTION ";
@@ -115,7 +114,7 @@ SC_MODULE(IDS) {
 
                 sig_anomaly_score.write(score);
 
-                // ---- Classify and respond ----
+                // Classify and respond 
                 ThreatLevel threat = ThreatLevel::CLEAN;
                 if (score >= EMERGENCY_THRESHOLD) {
                     threat = ThreatLevel::ATTACK;
@@ -140,7 +139,7 @@ SC_MODULE(IDS) {
                 }
             }
 
-            // ---- Recovery: check if threat has passed ----
+            // Recovery: check if threat has passed 
             // If bus load is back to normal and no anomalies for 10ms, recover
             if (sched->safe_level != SafeLevel::NORMAL &&
                 net->load() < (int)(Network::MAX_CAPACITY * 0.3)) {

@@ -4,9 +4,8 @@
 #include <systemc.h>
 #include "network.h"
 
-// -------------------------------------------------------
 // Node roles matching real embedded system topologies
-// -------------------------------------------------------
+
 enum class NodeRole {
     SENSOR,      // Node 1: periodic sensor readings
     CONTROL,     // Node 2: control commands to actuator
