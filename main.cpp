@@ -7,7 +7,7 @@
 
 int sc_main(int argc, char* argv[]) {
 
-    std::cout << "=== RT-ENSS v2.0 ===" << std::endl;
+    std::cout << "[SIM_START]" << std::endl;
     std::cout.flush();
 
     Network   network("Network");
@@ -35,16 +35,16 @@ int sc_main(int argc, char* argv[]) {
     sc_trace(tf, ids.sig_threat_level,       "threat_level");
     sc_trace(tf, ids.sig_anomaly_score,      "anomaly_score");
 
-    // Run in 1ms slices, printing a TICK every slice so Python
-    // can pace the visualization regardless of how fast SystemC runs.
-    for (int t = 0; t < 300; t += 1) {
+    // Run in 1ms slices, emitting a TICK each time.
+    // Python dashboard reads these ticks and paces the display.
+    for (int t = 0; t < 300; t++) {
         sc_start(1, SC_MS);
-        std::cout << "[TICK] t=" << t+1 << std::endl;
+        std::cout << "[TICK] t=" << (t+1) << std::endl;
         std::cout.flush();
     }
 
     sc_close_vcd_trace_file(tf);
-    std::cout << "=== SIMULATION COMPLETE ===" << std::endl;
+    std::cout << "[SIM_DONE]" << std::endl;
     std::cout.flush();
     return 0;
 }
