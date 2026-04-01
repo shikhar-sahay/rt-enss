@@ -57,7 +57,7 @@ Most security solutions treat intrusion detection as an add-on layer, ignoring t
 ### Watch the IDS in Action
 This video shows the RT-ENSS dashboard during the 300ms simulation. Note the **Safe Mode** transitions in the top-right corner as the IDS detects the Spoofing and DoS attacks.
 
-![RT-ENSS Simulation Demo](assets/rtenssdemo.mp4)
+https://github.com/user-attachments/assets/92c9a07a-addf-4069-add2-d12aeb24f08f
 
 ---
 
