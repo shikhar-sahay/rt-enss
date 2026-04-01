@@ -61,7 +61,7 @@ SC_MODULE(IDS) {
             // Process up to 5 messages per cycle (bounded latency)
             int processed = 0;
             while (net->hasMessages() && processed < 5) {
-                Message msg = net->receive();
+                Message msg = net->front(); net->pop();
                 processed++;
 
                 int score = 0;

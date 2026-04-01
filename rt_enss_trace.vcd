@@ -1,5 +1,5 @@
 $date
-     Apr 02, 2026       01:07:16
+     Apr 02, 2026       01:29:53
 $end
 
 $version
@@ -41,3 +41,351 @@ b10 aaaab
 #8000000000
 b11 aaaab
 
+#10000000000
+b1 aaaad
+
+#11000000000
+b0 aaaad
+
+#16000000000
+b100 aaaab
+
+#20000000000
+b10 aaaad
+
+#21000000000
+b0 aaaad
+
+#26000000000
+b0 aaaab
+
+#27000000000
+b1 aaaab
+
+#30000000000
+b10 aaaab
+b1 aaaad
+
+#31000000000
+b0 aaaad
+
+#35000000000
+b0 aaaab
+
+#40000000000
+b1 aaaab
+b10 aaaad
+b101000 aaaag
+
+#41000000000
+b0 aaaad
+
+#43000000000
+b0 aaaab
+
+#50000000000
+b11 aaaab
+b0 aaaag
+
+#58000000000
+b0 aaaab
+
+#60000000000
+b1 aaaab
+b1 aaaad
+b101000 aaaag
+
+#61000000000
+b11 aaaad
+
+#62000000000
+b0 aaaad
+
+#63000000000
+b10 aaaab
+
+#68000000000
+b0 aaaab
+
+#70000000000
+b1 aaaad
+b0 aaaag
+
+#71000000000
+b0 aaaad
+
+#80000000000
+b1 aaaab
+b10 aaaad
+b1 aaaaf
+b1010000 aaaag
+
+#81000000000
+b0 aaaad
+
+#83000000000
+b100 aaaab
+
+#90000000000
+b10 aaaad
+b0 aaaaf
+b0 aaaag
+
+#91000000000
+b0 aaaad
+
+#93000000000
+b0 aaaab
+
+#94000000000
+b10 aaaab
+
+#99000000000
+b0 aaaab
+
+#100000000000
+b1 aaaab
+
+#101000000000
+b1 aaaad
+
+#102000000000
+b0 aaaad
+
+#103000000000
+b11 aaaab
+
+#110000000000
+b101000 aaaag
+
+#111000000000
+b0 aaaab
+
+#120000000000
+b1 aaaab
+b1 aaaad
+b0 aaaag
+
+#121000000000
+b11 aaaad
+b1 aaaaf
+b1010000 aaaag
+
+#122000000000
+b0 aaaad
+
+#123000000000
+b10 aaaab
+
+#128000000000
+b0 aaaab
+
+#130000000000
+b1 aaaad
+b0 aaaaf
+b0 aaaag
+
+#131000000000
+b0 aaaad
+
+#140000000000
+1aaaaa
+b1 aaaab
+b10 aaaac
+b11010 aaaad
+1aaaae
+b10 aaaaf
+b1101110 aaaag
+
+#141000000000
+b10110 aaaad
+
+#142000000000
+b10001 aaaad
+0aaaae
+
+#143000000000
+0aaaaa
+b0 aaaab
+b0 aaaac
+b1100 aaaad
+
+#144000000000
+b111 aaaad
+
+#145000000000
+b10 aaaad
+b0 aaaaf
+b0 aaaag
+
+#146000000000
+b0 aaaad
+
+#150000000000
+b10 aaaab
+
+#155000000000
+b11 aaaab
+
+#160000000000
+b1 aaaad
+b1 aaaaf
+b1010000 aaaag
+
+#161000000000
+b10 aaaad
+b0 aaaaf
+b101000 aaaag
+
+#162000000000
+b0 aaaad
+
+#163000000000
+b100 aaaab
+
+#170000000000
+b1 aaaad
+b0 aaaag
+
+#171000000000
+b0 aaaad
+
+#173000000000
+b0 aaaab
+
+#174000000000
+b1 aaaab
+
+#177000000000
+b0 aaaab
+
+#180000000000
+b1 aaaab
+b1 aaaad
+
+#181000000000
+b0 aaaad
+b101000 aaaag
+
+#183000000000
+b10 aaaab
+
+#188000000000
+b0 aaaab
+
+#190000000000
+b1 aaaad
+b0 aaaag
+
+#191000000000
+b0 aaaad
+
+#200000000000
+b1 aaaab
+
+#201000000000
+b1 aaaad
+
+#202000000000
+b0 aaaad
+
+#203000000000
+b11 aaaab
+
+#210000000000
+b101000 aaaag
+
+#211000000000
+b0 aaaab
+b1 aaaaf
+b1010000 aaaag
+
+#212000000000
+b10 aaaab
+
+#217000000000
+b0 aaaab
+
+#220000000000
+b1 aaaab
+b1 aaaad
+b0 aaaaf
+b0 aaaag
+
+#221000000000
+b0 aaaad
+
+#223000000000
+b0 aaaab
+
+#240000000000
+b1 aaaab
+b1 aaaad
+
+#241000000000
+b10 aaaad
+b101000 aaaag
+
+#242000000000
+b0 aaaad
+
+#243000000000
+b10 aaaab
+
+#248000000000
+b100 aaaab
+
+#250000000000
+b0 aaaag
+
+#258000000000
+b0 aaaab
+
+#259000000000
+b11 aaaab
+
+#260000000000
+b1 aaaad
+
+#261000000000
+b0 aaaad
+
+#267000000000
+b0 aaaab
+
+#268000000000
+b1 aaaab
+
+#270000000000
+b1 aaaad
+
+#271000000000
+b10 aaaab
+b1 aaaaf
+b1010000 aaaag
+
+#272000000000
+b0 aaaad
+
+#276000000000
+b0 aaaab
+
+#280000000000
+b1 aaaab
+b1 aaaad
+
+#281000000000
+b0 aaaad
+b0 aaaaf
+b0 aaaag
+
+#283000000000
+b0 aaaab
+
+#290000000000
+b1 aaaad
+
+#291000000000
+b0 aaaad
+
+#300000000000
