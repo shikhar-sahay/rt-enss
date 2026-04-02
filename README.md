@@ -251,19 +251,20 @@ rt-enss/
 
 ## References
 
-[1] C. L. Liu and J. W. Layland, “Scheduling algorithms for multiprogramming in a hard-real-time environment,” Journal of the ACM, vol. 20, no. 1, pp. 46–61, Jan. 1973.
-[2] G. C. Buttazzo, Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications, 3rd ed. New York, NY, USA: Springer, 2011.
-[3] IEEE Standard for Standard SystemC Language Reference Manual, IEEE Std 1666-2011, Jan. 2012.
-[4] Robert Bosch GmbH, CAN Specification Version 2.0, Sep. 1991.
-[5] T. Hoppe, S. Kiltz, and J. Dittmann, “Security threats to automotive CAN networks—Practical examples and selected short-term countermeasures,” in Computer Safety, Reliability, and Security (SAFECOMP 2008), LNCS 5219, pp. 235–248, 2008.
-[6] K. Koscher et al., “Experimental security analysis of a modern automobile,” in 2010 IEEE Symposium on Security and Privacy, pp. 447–462, 2010.
-[7] S. Checkoway et al., “Comprehensive experimental analyses of automotive attack surfaces,” in Proceedings of the 20th USENIX Security Symposium, 2011.
-[8] U. E. Larson, D. K. Nilsson, and E. Jonsson, “An approach to specification-based attack detection for in-vehicle networks,” in 2008 IEEE Intelligent Vehicles Symposium, pp. 220–225, 2008.
-[9] M. Müter, A. Groll, and F. C. Freiling, “A structured approach to anomaly detection for in-vehicle networks,” in 2010 Sixth International Conference on Information Assurance and Security, pp. 92–98, 2010.
-[10] I. Studnia, E. Alata, V. Nicomette, M. Kaâniche, and Y. Laarouchi, “A language-based intrusion detection approach for automotive embedded networks,” International Journal of Embedded Systems, vol. 10, no. 1, pp. 1–12, 2018.
-[11] J. Rushby, “Critical system properties: Survey and taxonomy,” Reliability Engineering & System Safety, vol. 43, no. 2, pp. 189–219, 1994.
-[12] P. Koopman, “Embedded system security,” IEEE Computer, vol. 37, no. 7, pp. 95–97, 2004.
-[13] E. A. Lee, “Cyber physical systems: Design challenges,” in 2008 11th IEEE International Symposium on Object-Oriented Real-Time Distributed Computing (ISORC), pp. 363–369, 2008.
-[14] A. Burns and A. J. Wellings, Real-Time Systems and Programming Languages, 4th ed. Addison-Wesley, 2009.
-[15] S. Woo, H. J. Jo, and D. H. Lee, “A practical wireless attack on the connected car and security protocol for in-vehicle CAN,” IEEE Transactions on Intelligent Transportation Systems, vol. 16, no. 2, pp. 993–1006, 2015.
+## References
 
+[1] C. L. Liu and J. W. Layland, “Scheduling algorithms for multiprogramming in a hard-real-time environment,” *Journal of the ACM*, vol. 20, no. 1, pp. 46–61, Jan. 1973.  
+[2] G. C. Buttazzo, *Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications*, 3rd ed. Springer, 2011.  
+[3] IEEE Standard for Standard SystemC Language Reference Manual, IEEE Std 1666-2011, Jan. 2012.  
+[4] Robert Bosch GmbH, *CAN Specification Version 2.0*, Sep. 1991.  
+[5] T. Hoppe, S. Kiltz, and J. Dittmann, “Security threats to automotive CAN networks—Practical examples and selected short-term countermeasures,” SAFECOMP 2008.  
+[6] K. Koscher et al., “Experimental security analysis of a modern automobile,” IEEE S&P, 2010.  
+[7] S. Checkoway et al., “Comprehensive experimental analyses of automotive attack surfaces,” USENIX Security Symposium, 2011.  
+[8] U. E. Larson, D. K. Nilsson, and E. Jonsson, “Specification-based attack detection for in-vehicle networks,” IEEE IV Symposium, 2008.  
+[9] M. Müter, A. Groll, and F. C. Freiling, “Anomaly detection for in-vehicle networks,” 2010.  
+[10] I. Studnia et al., “Language-based intrusion detection for automotive embedded networks,” *International Journal of Embedded Systems*, 2018.  
+[11] J. Rushby, “Critical system properties: Survey and taxonomy,” *Reliability Engineering & System Safety*, 1994.  
+[12] P. Koopman, “Embedded system security,” *IEEE Computer*, 2004.  
+[13] E. A. Lee, “Cyber physical systems: Design challenges,” ISORC, 2008.  
+[14] A. Burns and A. J. Wellings, *Real-Time Systems and Programming Languages*, 4th ed., 2009.  
+[15] S. Woo, H. J. Jo, and D. H. Lee, “Wireless attack on connected car and CAN security protocol,” *IEEE T-ITS*, 2015.  
