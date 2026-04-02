@@ -251,8 +251,6 @@ rt-enss/
 
 ## References
 
-## References
-
 [1] C. L. Liu and J. W. Layland, “Scheduling algorithms for multiprogramming in a hard-real-time environment,” *Journal of the ACM*, vol. 20, no. 1, pp. 46–61, Jan. 1973.  
 [2] G. C. Buttazzo, *Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications*, 3rd ed. Springer, 2011.  
 [3] IEEE Standard for Standard SystemC Language Reference Manual, IEEE Std 1666-2011, Jan. 2012.  
