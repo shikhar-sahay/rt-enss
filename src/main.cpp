@@ -26,7 +26,7 @@ int sc_main(int argc, char* argv[]) {
     AttackInjector attacker("Attacker", &network);
     IDS            ids("IDS", &network, &scheduler);
 
-    sc_trace_file* tf = sc_create_vcd_trace_file("rt_enss_trace");
+    sc_trace_file* tf = sc_create_vcd_trace_file("output/rt_enss_trace");
     sc_trace(tf, scheduler.sig_safe_mode,    "safe_mode");
     sc_trace(tf, scheduler.sig_running_task, "running_task");
     sc_trace(tf, scheduler.sig_safe_level,   "safe_level");
